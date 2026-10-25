@@ -1,0 +1,22 @@
+[
+  {
+    "lang": "ar",
+    "modal": false,
+    "violations": []
+  },
+  {
+    "lang": "ar",
+    "modal": true,
+    "violations": []
+  },
+  {
+    "lang": "en",
+    "modal": false,
+    "violations": []
+  },
+  {
+    "lang": "en",
+    "modal": true,
+    "violations": []
+  }
+]
