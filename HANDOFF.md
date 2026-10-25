@@ -97,3 +97,11 @@ The modal supports name-first focus, Tab/Shift+Tab trapping, Escape/backdrop/clo
 6. Final public canonical/social image; analytics and advertising pixels are not installed or active.
 
 The reference URL returned HTTP 403 in this environment. Implementation followed the master document's locked section map, with original Tahreek visual treatments. Browser validation used Chromium; Safari/iOS/Firefox, real payments, real lead delivery and real media still need launch acceptance testing. This is a working development preview, not a live sales checkout.
+
+## GitHub Pages compatibility fix
+
+The editable Vite HTML entry is now `app/index.html`. `npm run build` emits `dist/` and synchronizes the compiled `index.html` and managed `assets/` into the repository root. Those root outputs are committed intentionally so GitHub Pages configured for **main / (root)** serves a runnable page, without requiring Node or a build workflow on GitHub. `.nojekyll` preserves static assets. Edit source files, not the generated root HTML/assets. `.static-assets.json` records managed outputs so repeat builds remove only obsolete generated assets.
+
+Vite uses relative production URLs; application logos/media resolve under the deployed document base. This supports the project URL `/jmal-ali-/` as well as a domain root. `vite.config.js` keeps the development HTML entry separate and resolves the shared source directory.
+
+Regression check: serve `dist/` under a local `/jmal-ali-/` path, then run `node tests/static-pages.mjs` (`STATIC_URL` overrides its default test URL). The check verifies 14 rendered sections, images/fonts without failed requests, Arabic/English, callback, currency and curriculum. The live GitHub Pages URL could not be fetched from this cloud network because its proxy returned HTTP 403; check the site's GitHub Pages deployment after the commit is published.

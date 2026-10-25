@@ -11,7 +11,10 @@ import { copy } from "./content.js";
 /* TAHREEK SOUND DESIGN — BILINGUAL COURSE PAGE V4
    Configure real integrations before going live. */
 
-const ASSETS = { logo: "/assets/logo.png", cover: "/assets/cover.jpg" };
+const ASSETS = {
+  logo: `${import.meta.env.BASE_URL}assets/logo.png`,
+  cover: `${import.meta.env.BASE_URL}assets/cover.jpg`,
+};
 
 function esc(s) {
   return String(s)
@@ -90,7 +93,7 @@ function offerText(c) {
 function safeURL(value) {
   if (typeof value !== "string" || !value.trim()) return "";
   try {
-    const u = new URL(value, location.origin);
+    const u = new URL(value, document.baseURI);
     return ["https:", "http:"].includes(u.protocol) &&
       (u.protocol === "https:" || u.origin === location.origin)
       ? u.href
